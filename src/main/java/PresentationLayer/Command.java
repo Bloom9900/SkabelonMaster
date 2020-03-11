@@ -16,11 +16,11 @@ abstract class Command {
     }
 
     static Command from( HttpServletRequest request ) {
-        String TagetName = request.getParameter( "target" );
+        String TargetName = request.getParameter( "target" );
         if ( commands == null ) {
             initCommands();
         }
-        return commands.getOrDefault(TagetName, new UnknownCommand() );   // unknowncommand er default.
+        return commands.getOrDefault(TargetName, new UnknownCommand() );   // unknowncommand er default.
     }
 
     abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
